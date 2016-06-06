@@ -1,0 +1,13 @@
+{% extends "loggedin_frame.html" %}
+{% block body %}
+    {% for blog in blogs %}
+      <div class="blog">
+        <div class="blog-heading">
+          <div class="blog-subject"><a href="/{{blog.key().id()}}">{{blog.subject}}</a></div>
+          <div class="blog-date">from {{blog.username}} on {{blog.created.strftime("%b %d, %Y")}}</div>
+          <hr>
+        </div>
+        <pre class="blog-content">{{blog.content}}</pre>
+      </div>
+    {% endfor %}
+{% endblock %}

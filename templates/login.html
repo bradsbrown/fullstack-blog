@@ -1,0 +1,15 @@
+{% extends "loggedout_frame.html" %}
+{% block body %}
+    <h1>Login</h1>
+    <form method="post">
+      <label> User Name:
+        <input type="text" name="username" value={{username}}>
+        <h3 style="color: red">{{error_user}}</h3>
+      </label><br>
+      <label> Password:
+        <input type="password" name="password" value="">
+        <h3 style="color: red">{{error_pw}}</h3>
+      </label><br>
+      <input type="submit"><br><br>
+      <h3>If you haven't yet, please <a href="signup">register</a>!</h3>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "post.html" %}
+{% block commentform %}
+<div class="comment-add">
+  <form method="post">
+    <label>
+      <div  style="margin-top: 10px">Comment</div>
+      <textarea name="comment">{{comment}}</textarea>
+    </label>
+    <input type="submit">
+  </form>
+</div>
+{% endblock %}

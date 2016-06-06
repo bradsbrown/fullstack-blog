@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Multi-User Blog</title>
+  </head>
+  <style type="text/css">
+    body {
+      font-family: sans-serif;
+      width: 800px
+      margin: 0 auto;
+      padding: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .error {
+      color: red;
+    }
+
+    label {
+      display: block;
+      font-size: 20px;
+    }
+
+    input[type=text] {
+      width: 400px;
+      font-size: 20px;
+      padding: 2px;
+    }
+
+    textarea {
+      width: 400px;
+      height: 200px;
+      font-size: 17px;
+      font-family: monospace;
+    }
+
+    input[type=submit] {
+      font-size: 24px;
+    }
+
+    hr {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+
+    .blog + .blog {
+      margin-top: 20px;
+    }
+
+    .blog-subject {
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 0;
+      margin-top: 10px;
+      text-decoration: none;
+    }
+
+    .blog-content {
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .blog-date {
+      font-size: 12px;
+      color: grey;
+      text-align: right;
+    }
+
+    .blog-heading {
+      margin-top: 20px;
+    }
+  </style>
+
+  <body>
+    <h1><a href="/">Multi-User Blog</a><h1>
+    {% block body %}
+    {% endblock %}
+
+  <body>
+</html>

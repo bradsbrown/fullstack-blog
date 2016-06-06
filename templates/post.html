@@ -1,0 +1,38 @@
+{% extends "loggedin_frame.html" %}
+{% block body %}
+  {% block commentform %}
+  {% endblock %}
+<div class="blog">
+  <div class="blog-heading">
+    <div class="blog-subject"><a href="/{{blog.key().id()}}">{{blog.subject}}</a>  <span class="like-count">({{like_count}} Likes)</span></div>
+    <div class="blog-date">{{blog.username}}-{{blog.created.strftime("%b %d, %Y")}}</div>
+    {% if user_id == blog.user_id %}
+    <div class="blog-edits"><a href="/delete/post/{{blog.key().id()}}">Delete Post</a> <a href="/edit/post/{{blog.key().id()}}">Edit Post</a></div>
+    {% endif %}
+    <hr>
+  </div>
+  <pre class="blog-content">{{blog.content}}</pre>
+  {% if user_id != blog.user_id %}
+    {% if not has_liked %}
+    <div class="blog-like"><a href="/like/add/{{blog.key().id()}}">Like this Post</a></div>
+    {% endif %}
+    {% if has_liked %}
+    <div class="blog-like"><a href="/like/del/{{blog.key().id()}}">Unlike this Post</a></div>
+    {% endif %}
+  {% endif %}
+  <h3 style="color: red">{{error_selflike}}</h3>
+  <h3 style="color: red">{{error_hasliked}}</h3>
+</div>
+<div class="comment-add"><a href="/comment/{{blog.key().id()}}">Add Comment</a></div>
+{% for comment in comments %}
+<div class="comment">
+    <div class="comment-heading">from {{comment.username}} on {{comment.created.strftime("%b %d, %Y")}}</div>
+    {% if user_id == comment.user_id %}
+    <div class="comment-edits"><a href="/delete/comment/{{comment.key().id()}}">Delete Comment</a> <a href="/edit/comment/{{comment.key().id()}}">Edit Comment</a></div>
+    {% endif %}
+    <hr>
+  </div>
+  <pre class="comment-content">{{comment.comment}}</pre>
+</div>
+{% endfor %}
+{% endblock %}

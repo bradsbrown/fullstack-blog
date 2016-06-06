@@ -1,0 +1,16 @@
+{% extends "loggedin_frame.html" %}
+{% block body %}
+<form method="post">
+  <label>
+    <div>Title</div>
+    <input type="text" name="subject" value="{{subject}}">
+  </label>
+  <label>
+    <div  style="margin-top: 10px">Blog</div>
+    <textarea name="content">{{content}}</textarea>
+  </label>
+
+  <div class="error">{{error}}</div>
+  <input type="submit">
+</form>
+{% endblock %}
